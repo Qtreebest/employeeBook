@@ -1,10 +1,10 @@
 public class Employee {
     private static int counter = 1;
-    private String firstName; //имя
-    private String lastName; //фамилия
-    private String middleName; //отчество
-    private int department; //отдел
-    private int salary; //зарплата
+    private String firstName;
+    private String lastName;
+    private String middleName;
+    private int department;
+    private int salary;
     private int id;
 
     public Employee(String firstName, String lastName, String middleName, int department, int salary) {
@@ -51,8 +51,8 @@ public class Employee {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {return true;}
+        if (o == null || getClass() != o.getClass()) {return false;}
 
         Employee employee = (Employee) o;
         return salary == employee.salary;

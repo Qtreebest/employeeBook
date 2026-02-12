@@ -1,6 +1,9 @@
 public class EmployeeBook {
     private Employee[] employees = new Employee[10];
 
+    public static final String TAX_PROPORTIONAL = "PROPORTIONAL";
+    public static final String TAX_PROGRESSIVE = "PROGRESSIVE";
+
     public boolean addEmployee(Employee employee) {
         for (int i = 0; i < employees.length; i++) {
             if (employees[i] == null) {
@@ -23,7 +26,9 @@ public class EmployeeBook {
         int sum = 0;
         int count = 0;
         for (Employee e : employees) {
-            if (e == null) break;
+            if (e == null) {
+                break;
+            }
             sum += e.getSalary();
             count++;
         }
@@ -32,16 +37,18 @@ public class EmployeeBook {
 
     public void printTaxes(String type) {
         for (Employee e : employees) {
-            if (e == null) continue;
+            if (e == null) {
+                continue;
+            }
 
             double tax = 0;
 
             switch (type) {
-                case "PROPORTIONAL":
+                case TAX_PROPORTIONAL:
                     tax = e.getSalary() * 0.13;
                     break;
 
-                case "PROGRESSIVE":
+                case TAX_PROGRESSIVE:
                     if (e.getSalary() <= 150) {
                         tax = e.getSalary() * 0.13;
                     } else if (e.getSalary() <= 350) {
@@ -60,8 +67,12 @@ public class EmployeeBook {
 
     public void indexDeportament(int departament, int percent) {
         for (Employee e : employees) {
-            if (e == null) continue;
-            if (e.getDepartment() != departament) continue;
+            if (e == null) {
+                continue;
+            }
+            if (e.getDepartment() != departament) {
+                continue;
+            }
 
             int newSalary = e.getSalary() + (e.getSalary() * (percent / 100));
             e.setSalary(newSalary);
@@ -72,7 +83,9 @@ public class EmployeeBook {
         for (int i = 0; i < employees.length; i++) {
             Employee e = employees[i];
 
-            if (e == null) continue;
+            if (e == null) {
+                continue;
+            }
             if (e.getDepartment() == departament && e.getSalary() > salary) {
                 System.out.print("найден №" + i + ": ");
                 e.printShortInfo();
@@ -86,13 +99,17 @@ public class EmployeeBook {
         int found = 0;
 
         while (i < employees.length) {
-            if (employees[i] == null) break;
+            if (employees[i] == null) {
+                break;
+            }
 
             if (employees[i].getSalary() < wage) {
                 employees[i].printShortInfo();
                 found++;
             }
-            if (found == employeeNumber) break;
+            if (found == employeeNumber) {
+                break;
+            }
 
             i++;
         }
@@ -100,16 +117,24 @@ public class EmployeeBook {
 
     public boolean contains(Employee employee) {
         for (Employee e : employees) {
-            if (e == null) continue;
-            if (e.equals(employee)) return true;
+            if (e == null) {
+                continue;
+            }
+            if (e.equals(employee)) {
+                return true;
+            }
         }
         return false;
     }
 
     public Employee findById(int id) {
         for (Employee e : employees) {
-            if (e == null) continue;
-            if (e.getId() == id) return e;
+            if (e == null) {
+                continue;
+            }
+            if (e.getId() == id) {
+                return e;
+            }
         }
         return null;
     }

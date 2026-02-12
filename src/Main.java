@@ -15,7 +15,7 @@ public class Main {
         System.out.println(book.addEmployee(new Employee("Александр", "Дмитриев", "Дмитриевич", 4, 143)));
         book.printAllEmployees();
         System.out.println("Средняя: " + book.averageSalary());
-        book.printTaxes("PROGRESSIVE");
+        book.printTaxes(EmployeeBook.TAX_PROGRESSIVE);
         book.indexDeportament(1, 25);
         book.findFirstByDepartamentAndSalary(1, 110);
         book.printLowerSalary(250, 1);
